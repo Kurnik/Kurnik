@@ -24,5 +24,29 @@
        <form method="post" action="stworzpokoj.jsp">
            <p align="center"><input type="submit" value="Stworz pokoj"></p>
         </form> 
+        <%////////%>
+        <%
+             if(request.getParameter("buttonName") != null) {
+      %>
+      <SCRIPT LANGUAGE="JavaScript">
+            <!--
+      confirm('Zaproszenie do gry od Gracz1')
+      --> 
+        </SCRIPT>
+      <%}%>
+        <FORM NAME="form1" METHOD="POST">
+            <INPUT TYPE="HIDDEN" NAME="buttonName">
+            <INPUT TYPE="BUTTON" VALUE="Otrzymaj zaproszenie" ONCLICK="button1()">   
+        </FORM>
+    <SCRIPT LANGUAGE="JavaScript">
+            <!--
+            function button1()
+            {
+                document.form1.buttonName.value = "button 1"
+                form1.submit()
+            }    
+            
+             --> 
+        </SCRIPT>
     </body>
 </html>

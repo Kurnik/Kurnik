@@ -12,12 +12,15 @@
         <title>Kurnik</title>
     </head>
     <body><center>
-        <form method="post" action="gra.jsp">
+        <form method="get" action="savetype.jsp">
             </br></br>
             Wybierz gre:</br>
-            Statki<input type="radio" name="gra" value="statki" checked="checked"></br>
-        Warcaby<input type="radio" name="gra" value="warcaby"> </br> 
+            Statki<input type="radio" name="gra" value="Statki" checked="checked"></br>
+        Warcaby<input type="radio" name="gra" value="Warcaby"> </br> 
         <input type="submit" value="Stworz pokoj">
     </form>
+        <form method="post" action="logowanie.jsp">
+        <input type="submit" value="Wroc">
+    </form> 
     </center></body>
 </html>
