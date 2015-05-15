@@ -12,7 +12,19 @@
         <title>Kurnik</title>
     </head>
     <body>
-    <center><h1>Rankingi:</h1>
+    
+    <table border="5" align="center" width="50%" height="80%">
+        <caption align="ustawienie">Rankingi:</caption>
+        <tr>
+            <th width="10%"> Nr </th>    <th width="30%"> Login </th>	<th width="30%"> Statki </th>	<th width="30%"> Warcaby </th>
+        </tr>
+        <tr>
+            <td>...</td>	<td>...</td>	<td>...</td>	<td>...</td>
+        </tr>
+        <tr>
+            <td>...</td>	<td>...</td>	<td>...</td>	<td>...</td>
+        </tr>
+    </table>
     <form method="post" action="index.jsp">
                 <input type="submit" value="Wroc">
     </center></body>
