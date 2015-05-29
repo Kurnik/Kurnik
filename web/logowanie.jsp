@@ -5,7 +5,9 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
+<jsp:useBean id="idHandler" class="foo.Login" scope="request">
+<jsp:setProperty name="idHandler" property="*"/>
+</jsp:useBean>
 
 <!DOCTYPE html>
 <html>
