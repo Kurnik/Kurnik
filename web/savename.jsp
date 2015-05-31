@@ -24,7 +24,7 @@
 </jsp:useBean>
 
 <% 
-   if (idHandler.authenticate()) {
+   if (idHandler.authenticate()==true) {
 %>
 <jsp:forward page="logowanie.jsp"/>
 <%

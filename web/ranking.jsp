@@ -15,7 +15,7 @@
     <%@page import = "java.sql.*" %>
     <%
     Class.forName("oracle.jdbc.OracleDriver");
-    Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@172.16.177.241:1521:XE", "KAPRAK", "kaprak");
+    Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@192.168.1.12:1521:XE", "KAPRAK", "kaprak");
     Statement stmt = conn.createStatement();
     String sql="select U.ID_UZYTKOWNIK, U.NICK, R.RANKING_WARCABY, R.RANKING_STATKI from UZYTKOWNIK U Join RANKING R ON U.ID_RANKING=R.ID_RANKING WHERE ID_UZYTKOWNIK>0";
     ResultSet rs = stmt.executeQuery(sql);
@@ -24,6 +24,7 @@
     if(rs!=null)
     { 
     %>
+    
     <table border="5" align="center" width="50%" height="80%">
         <caption align="ustawienie">Rankingi:</caption>
         <tr>
