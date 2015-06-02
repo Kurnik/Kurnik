@@ -13,13 +13,11 @@
     </head>
     <body>
        <center>
-    <form method="post" action="zarejestruj.jsp">
+    <form method="post" action="newuser.jsp">
         Podaj swój login: <br />
         <input type="text" name="login" /><br /> 
         Podaj swoje hasło: <br />
         <input type="text" name="haslo" /><br /> 
-        Podaj swoj email <br />
-        <input type="text" name="email" /><br /> 
         Akceptuje regulamin </br>
         tak<input type="radio" name="akceptuje" value="tak">
         nie<input type="radio" name="akceptuje" value="nie" checked="checked">
