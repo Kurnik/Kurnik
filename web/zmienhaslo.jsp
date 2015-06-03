@@ -13,7 +13,7 @@
         <title>Kurnik</title>
     </head>
     <body><center>
-    <form method="post" action="zmieniono.jsp">
+    <form method="post" action="zmieniamhaslo.jsp">
         Podaj swoje stare hasło: <br />
         <input type="text" name="starehaslo" /><br />
         Podaj swoje nowe hasło: <br />

@@ -5,9 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<jsp:useBean id="idHandler" class="foo.Login" scope="request">
-<jsp:setProperty name="idHandler" property="*"/>
-</jsp:useBean>
+<jsp:useBean id="user" class="foo.Login" scope="session"/>
 
 <!DOCTYPE html>
 <html>
@@ -21,7 +19,7 @@
         </form>
         <form method="post" action="zmienhaslo.jsp">
             <input type="submit" value="Zmien haslo" style="float: right;">
-            <align: left><h1>Witaj <%= idHandler.getLogin()%><%//session.getAttribute("Name") %> </h1></br></br></align:>
+            <align: left><h1>Witaj <%= user.getLogin()%><%//session.getAttribute("Name") %> </h1></br></br></align:>
         </form>
        <form method="post" action="stworzpokoj.jsp">
            <p align="center"><input type="submit" value="Stworz pokoj"></p>

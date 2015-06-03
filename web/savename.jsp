@@ -18,13 +18,13 @@
 %>
 
 <%@ page import="java.util.*" %>
-<jsp:useBean id="idHandler" class="foo.Login" scope="request">
-<jsp:setProperty name="idHandler" property="login" value="<%=request.getParameter("login")%>"/>
-<jsp:setProperty name="idHandler" property="haslo" value="<%=request.getParameter("haslo")%>"/>
-</jsp:useBean>
+<jsp:useBean id="user" class="foo.Login" scope="session"/>
+    <jsp:setProperty name="user" property="*"/>
+    
+
 
 <% 
-   if (idHandler.authenticate()==true) {
+   if (user.authenticate()==true) {
 %>
 <jsp:forward page="logowanie.jsp"/>
 <%
@@ -35,4 +35,4 @@
    }
 %>
 </BODY>
-</HTML
+</HTML>

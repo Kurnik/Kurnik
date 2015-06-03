@@ -12,10 +12,8 @@
     <head>
     <%@page import = "java.sql.*" %>
     <%@ page import="java.util.*" %>
-    <jsp:useBean id="idHandler" class="foo.Login" scope="request">
-    <jsp:setProperty name="idHandler" property="login" value="<%=request.getParameter("login")%>"/>
-    <jsp:setProperty name="idHandler" property="haslo" value="<%=request.getParameter("haslo")%>"/>
-    </jsp:useBean>
+    <jsp:useBean id="newuser" class="foo.Login" scope="session"/>
+        <jsp:setProperty name="newuser" property="*"/>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Kurnik</title>
     </head>
@@ -33,12 +31,12 @@
     try{
         if(rs!=null){ 
             while(rs.next()){
-                if(idHandler.getLogin().trim().equals(rs.getString("NICK").trim())){
+                if(newuser.getLogin().trim().equals(rs.getString("NICK").trim())){
                     %><jsp:forward page="zmieniono.jsp"/><%
                 }
             }
         }
-        sql = "insert into uzytkownik(nick, haslo) values('"+idHandler.getLogin()+"','"+idHandler.getHaslo()+"')";
+        sql = "insert into uzytkownik(nick, haslo) values('"+newuser.getLogin()+"','"+newuser.getHaslo()+"')";
         rs = stmt.executeQuery(sql);
     }catch(SQLException e)
     {
