@@ -32,18 +32,17 @@ package foo;
   public String getHaslo(){return haslo;}
 
  public boolean  authenticate(){
-  String query="select Nick, haslo from UZYTKOWNIK";
    String DbLogin;
    String DbHaslo;
-   String finalUser="";
   try {
-  Class.forName("oracle.jdbc.OracleDriver");
-    Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@192.168.1.12:1521:XE", "KAPRAK", "kaprak");
+      String query="select * from UZYTKOWNIK";
+    Class.forName("oracle.jdbc.OracleDriver");
+    Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@172.16.177.201:1521:XE", "KAPRAK", "kaprak");
    Statement stat = conn.createStatement();
    ResultSet rs = stat.executeQuery(query);
    while(rs.next()){
-  DbLogin=rs.getString("nick").trim();
-  DbHaslo=rs.getString("haslo").trim();
+   DbLogin=rs.getString("nick").trim();
+   DbHaslo=rs.getString("haslo").trim();
    if (login.equals(DbLogin) && haslo.equals(DbHaslo)) {
         return true;
    }

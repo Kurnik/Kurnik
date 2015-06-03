@@ -4,6 +4,8 @@
     Author     : Kasper
 --%>
 
+<%@page import="oracle.jdbc.internal.OraclePreparedStatement"%>
+<%@page import="oracle.jdbc.OracleResultSet"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -24,23 +26,23 @@
       %><jsp:forward page="zmieniono.jsp"/><%  
     }
     Class.forName("oracle.jdbc.OracleDriver");
-    Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@192.168.1.12:1521:XE", "KAPRAK", "kaprak");
+    Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@172.16.177.201:1521:XE", "KAPRAK", "kaprak");
     Statement stmt = conn.createStatement();
-    String sql="select  U.NICK, id_uzytkownik from UZYTKOWNIK U";
+    String sql="select  U.NICK from UZYTKOWNIK U";
     ResultSet rs = stmt.executeQuery(sql); 
     try{
         if(rs!=null){ 
             while(rs.next()){
-                if(idHandler.getLogin().equals(rs.getString("NICK"))){
+                if(idHandler.getLogin().trim().equals(rs.getString("NICK").trim())){
                     %><jsp:forward page="zmieniono.jsp"/><%
                 }
             }
         }
-       int i=rs.getInt("id_uzytkownik")+1;
-       String sql2="insert into uzytkownik(nick, haslo)";
-       rs = stmt.executeQuery(sql2);
+        sql = "insert into uzytkownik(nick, haslo) values('"+idHandler.getLogin()+"','"+idHandler.getHaslo()+"')";
+        rs = stmt.executeQuery(sql);
     }catch(SQLException e)
     {
+        %><jsp:forward page="index.jsp"/><%
         e.printStackTrace();
     }
     stmt.close();
