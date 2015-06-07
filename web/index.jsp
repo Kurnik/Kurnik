@@ -20,7 +20,6 @@
         
         <input type="submit" value="Zaloguj">
     </form></p>
-    
     <form method=post" action="rejestracja.jsp">
         <input type="submit" value="Utworz nowe konto">
     </form>
@@ -28,6 +27,8 @@
     <form method=post" action="ranking.jsp">
         <input type="submit" value="Ranking">
     </form>
+    <frameset cols="150,*"> 
+  
 </center>
 </body
 </html>

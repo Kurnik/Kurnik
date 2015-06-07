@@ -15,7 +15,7 @@
     <%@page import = "java.sql.*" %>
     <%
     Class.forName("oracle.jdbc.OracleDriver");
-    Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@172.16.177.201:1521:XE", "KAPRAK", "kaprak");
+    Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@192.168.1.12:1521:XE", "KAPRAK", "kaprak");
     Statement stmt = conn.createStatement();
     String sql="select U.ID_UZYTKOWNIK, U.NICK, R.RANKING_WARCABY, R.RANKING_STATKI from UZYTKOWNIK U Join RANKING R ON U.ID_uzytkownik=R.ID_uzytkownik WHERE U.ID_UZYTKOWNIK>0";
     ResultSet rs = stmt.executeQuery(sql);

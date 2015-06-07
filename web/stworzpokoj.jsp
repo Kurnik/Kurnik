@@ -16,7 +16,7 @@
             </br></br>
             Wybierz gre:</br>
             Statki<input type="radio" name="gra" value="Statki" checked="checked"></br>
-        Warcaby<input type="radio" name="gra" value="Warcaby"> </br> 
+            Warcaby<input type="radio" name="gra" value="Warcaby"> </br> 
         <input type="submit" value="Stworz pokoj">
     </form>
         <form method="post" action="logowanie.jsp">

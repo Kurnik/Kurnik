@@ -1,34 +1,26 @@
 <%-- 
-    Document   : gra
-    Created on : 2015-04-26, 20:42:01
+    Document   : prestatki
+    Created on : 2015-06-06, 18:06:41
     Author     : Kasper
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<%@ page import="foo.warcaby" %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Kurnik</title>
     </head>
     <body>
-    <form method="post" action="logowanie.jsp">
-    <input type="submit" value="Poddaj sie">
-        <center>
         <%
-        String[][] flota, strzaly;
+        String[][] flota;
         flota=new String[10][10];
-        strzaly=new String[10][10];
         for(int i=0; i<flota.length; i++){
             for(int j=0; j<flota[i].length; j++){
                 flota[i][j]="blue";
-                strzaly[i][j]="blue";
             }
         }
         %>
-        <h1><%= session.getAttribute("typ")%></h1></center>
-        
         <style>
         table{
             table-layout:fixed;
@@ -45,17 +37,28 @@
         </tr> 
         <%}%>
         
-        <table border="5" align="right" width="40%" height="40%">
-        <caption align="ustawienie">Twoje strzay:</caption>
-        <tr>
-            <th>   </th> <th> A </th> <th> B </th> <th> C </th> <th> D </th> </th> <th> E </th> <th> F </th> <th> G </th> <th> H </th> <th> I </th> <th> J </th>
-        </tr>
-        <%for(int i=0; i<strzaly.length; i++){%>
-        <tr>
-            <th><%=i+1%></th> <%for(int j=0; j<strzaly[i].length; j++){%>  <td style="background-color:<%=strzaly[i][j]%>"></td>   <%}%>
-        </tr> 
-        <%}%>
-        
-    </form> 
+        <p><form method="GET" action="sprawdzstatki.jsp">
+        1 jednomasztowiec: <br />
+        <input type="text" name="pj" /><br /> 
+        2 jednomasztowiec: <br />
+        <input type="text" name="dj" /><br /> 
+        3 jednomasztowiec: <br />
+        <input type="text" name="tj" /><br /> 
+        4 jednomasztowiec: <br />
+        <input type="text" name="cj" /><br /> 
+        1 dwumasztowiec: <br />
+        <input type="text" name="pd" /><br /> 
+        2 dwumasztowiec: <br />
+        <input type="text" name="dd" /><br />
+        3 dwumasztowiec: <br />
+        <input type="text" name="td" /><br />
+        1 trójmasztowiec: <br />
+        <input type="text" name="pt" /><br /> 
+        2 trójmasztowiec: <br />
+        <input type="text" name="dt" /><br />
+        1 czteromasztowiec: <br />
+        <input type="text" name="pc" /><br />
+        <input type="submit" value="Zatwierdz">
+    </form></p>
     </body>
 </html>

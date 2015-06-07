@@ -37,7 +37,7 @@ package foo;
   try {
       String query="select * from UZYTKOWNIK";
     Class.forName("oracle.jdbc.OracleDriver");
-    Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@172.16.177.201:1521:XE", "KAPRAK", "kaprak");
+    Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@192.168.1.12:1521:XE", "KAPRAK", "kaprak");
    Statement stat = conn.createStatement();
    ResultSet rs = stat.executeQuery(query);
    while(rs.next()){

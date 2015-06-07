@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import = "java.sql.*" %>
 <jsp:useBean id="user" class="foo.Login" scope="session"/>
 
 <!DOCTYPE html>
@@ -14,8 +15,25 @@
         <title>Kurnik</title>
     </head>
     <body>
+        <%response.setIntHeader("Refresh", 5);%>
+        
+        <%Class.forName("oracle.jdbc.OracleDriver");
+        Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@192.168.1.12:1521:XE", "KAPRAK", "kaprak");
+        Statement stmt = conn.createStatement();
+        String sql="select * from zapro where nick_2='"+user.getLogin().trim()+"'";
+        ResultSet rs = stmt.executeQuery(sql);
+        if(rs!=null){ 
+        while(rs.next()){
+        if(rs.getString("nick_2").trim().equals(user.getLogin().trim())){%>
         <form method="post" action="index.jsp">
-            <input type="submit" value="Wyloguj" style="float: right;">
+        <input type="submit" value="Akceptuj" style="float: right;">
+        </form>        
+          <%  }  
+        }
+        }
+       %>
+        <form method="post" action="index.jsp">
+        <input type="submit" value="Wyloguj" style="float: right;">
         </form>
         <form method="post" action="zmienhaslo.jsp">
             <input type="submit" value="Zmien haslo" style="float: right;">
@@ -25,28 +43,7 @@
            <p align="center"><input type="submit" value="Stworz pokoj"></p>
         </form> 
         <%////////%>
-        <%
-             if(request.getParameter("buttonName") != null) {
-      %>
-      <SCRIPT LANGUAGE="JavaScript">
-            <!--
-      confirm('Zaproszenie do gry od Gracz1')
-      --> 
-        </SCRIPT>
-      <%}%>
-        <FORM NAME="form1" METHOD="POST">
-            <INPUT TYPE="HIDDEN" NAME="buttonName">
-            <INPUT TYPE="BUTTON" VALUE="Otrzymaj zaproszenie" ONCLICK="button1()">   
-        </FORM>
-    <SCRIPT LANGUAGE="JavaScript">
-            <!--
-            function button1()
-            {
-                document.form1.buttonName.value = "button 1"
-                form1.submit()
-            }    
-            
-             --> 
-        </SCRIPT>
+        
+      
     </body>
 </html>
